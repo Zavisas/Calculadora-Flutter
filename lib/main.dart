@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:calculadora/lib/components/header.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Calculadora Acadêmica - FATEC'),
+          title: const Text('Calculadora Academica | Fatec Carapcuiba'),
         ),
         body: const CalculatorScreen(),
       ),
