@@ -1,30 +1,24 @@
-import 'package:calculadora/components/header.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Calculadora Academica | Fatec Carapcuiba'),
+          title: const Text('Calculadora Acadêmica'),
         ),
-        body: const CalculatorScreen(),
+        body: CalculatorScreen(),
       ),
     );
   }
 }
 
 class CalculatorScreen extends StatefulWidget {
-  const CalculatorScreen({super.key});
-
   @override
   _CalculatorScreenState createState() => _CalculatorScreenState();
 }
@@ -44,6 +38,9 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   TextEditingController tr8Controller = TextEditingController();
   TextEditingController tr9Controller = TextEditingController();
   TextEditingController subController = TextEditingController();
+
+  String nomeAluno = 'João Vitor Zavisas Terassi Morais';
+  String raAluno = '1431432312032';
 
   double calculateAverage() {
     List<double> trValues = [
@@ -80,7 +77,16 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           const Text(
-            const Spacer(),
+            'Nome do Aluno:',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          Text(nomeAluno),
+          const Text(
+            'RA do Aluno:',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          Text(raAluno),
+          const Text(
             'Notas TR (Trabalhos):',
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
@@ -93,8 +99,6 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           buildTextField('TR7', tr7Controller),
           buildTextField('TR8', tr8Controller),
           buildTextField('TR9', tr9Controller),
-
-          const Spacer(),
           const Text(
             'Notas P (Provas):',
             style: TextStyle(fontWeight: FontWeight.bold),
@@ -103,8 +107,6 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           buildTextField('P2', p2Controller),
           buildTextField('P3', p3Controller),
           buildTextField('P4', p4Controller),
-          
-          const Spacer(),
           const Text(
             'Nota SUB:',
             style: TextStyle(fontWeight: FontWeight.bold),
@@ -119,7 +121,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               showDialog(
                 context: context,
                 builder: (_) => AlertDialog(
-                  title: const Text('Resultado'),
+                  title: Text('Resultado'),
                   content: Text('Média: $average\nStatus: $status'),
                   actions: <Widget>[
                     TextButton(
