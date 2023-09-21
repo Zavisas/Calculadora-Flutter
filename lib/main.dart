@@ -1,5 +1,6 @@
+import 'package:calculadora/components/header.dart';
 import 'package:flutter/material.dart';
-import 'package:calculadora/lib/components/header.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(MyApp());
@@ -78,13 +79,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          const TextField(
-            decoration: InputDecoration(labelText: 'RA do Aluno'),
-          ),
-          const TextField(
-            decoration: InputDecoration(labelText: 'Nome do Aluno'),
-          ),
           const Text(
+            const Spacer(),
             'Notas TR (Trabalhos):',
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
@@ -97,6 +93,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           buildTextField('TR7', tr7Controller),
           buildTextField('TR8', tr8Controller),
           buildTextField('TR9', tr9Controller),
+
+          const Spacer(),
           const Text(
             'Notas P (Provas):',
             style: TextStyle(fontWeight: FontWeight.bold),
@@ -105,6 +103,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           buildTextField('P2', p2Controller),
           buildTextField('P3', p3Controller),
           buildTextField('P4', p4Controller),
+          
+          const Spacer(),
           const Text(
             'Nota SUB:',
             style: TextStyle(fontWeight: FontWeight.bold),
